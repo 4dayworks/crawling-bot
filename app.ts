@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = 3003;
+const PORT = 3001;
 
 app.post("/", async (req: Request, res: Response) => {
   const { url, body, header, method } = req.body as { url: string; body?: object; header?: object; method: string };
