@@ -13,6 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 
 const PORT = 3001;
 
+app.get("/", async (req: Request, res: Response) => {
+  res.status(200).send("running...");
+});
 app.post("/", async (req: Request, res: Response) => {
   const { url, body, header, method } = req.body as { url: string; body?: object; header?: object; method: string };
 
