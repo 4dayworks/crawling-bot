@@ -24,8 +24,8 @@ app.post("/", async (req: Request, res: Response) => {
     res.status(response.status).send(response.data);
     l("Success", "green", url);
   } catch (error: any) {
-    res.status(400).send("Error occurred during proxy");
-    l("Fail", "red", error.message);
+    res.status(400).send("Error occurred during proxy," + url + " ," + error.message);
+    l("Fail", "red", url + " " + error.message);
   }
 });
 app.listen(PORT, () => l("INFO", "blue", `Proxy server is running on http://localhost:${PORT}`));
