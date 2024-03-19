@@ -5,7 +5,10 @@ import { l } from "./console";
 import { getHeaders } from "./getHeaders";
 
 // HTTPS 인증서 검증을 무시하는 axios 인스턴스 생성
-const axiosInstance = axios.create({ httpsAgent: new https.Agent({ rejectUnauthorized: false }) });
+const axiosInstance = axios.create({
+  httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+  validateStatus: () => true,
+});
 
 const app = express();
 app.use(express.json());
